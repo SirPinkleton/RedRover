@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdevtff8e7i20"]
+
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Texture2D" uid="uid://d1oliigg2f85q" path="res://PNGs/S11.png" id="1_um2i6"]
+[ext_resource type="Script" path="res://Scripts/InteractableButton.cs" id="4_b2dud"]
+
+[node name="Scene_Of_House" type="Node2D"]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_um2i6")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="FrontDoorClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 652.0
+offset_top = 58.0
+offset_right = 899.0
+offset_bottom = 572.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S11.1"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 63.0
+offset_top = 598.0
+offset_right = 1085.0
+offset_bottom = 669.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[node name="RightBoirderClickable2" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1044.0
+offset_top = 41.0
+offset_right = 1204.0
+offset_bottom = 661.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="WindowCommentable" type="TextureButton" parent="Interactions"]
+offset_left = 111.0
+offset_top = 115.0
+offset_right = 566.0
+offset_bottom = 468.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_b2dud")
+CommentWhenClicked = "Could I make a run for it?"
+
+[connection signal="pressed" from="SceneTransitions/FrontDoorClickable" to="SceneTransitions/FrontDoorClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBoirderClickable2" to="SceneTransitions/RightBoirderClickable2" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/WindowCommentable" to="Interactions/WindowCommentable" method="SendCommentMessage"]

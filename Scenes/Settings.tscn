@@ -1,0 +1,83 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmqp3llh81xca"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_54c0a"]
+[ext_resource type="Texture2D" uid="uid://c6j1u103fr46f" path="res://PNGs/blankBackground.png" id="1_ytqeo"]
+[ext_resource type="Texture2D" uid="uid://sswxdi20th8f" path="res://PNGs/prev.png" id="2_5s7n3"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="3_3ll4m"]
+[ext_resource type="Texture2D" uid="uid://k85rusfdvsk2" path="res://PNGs/Exit.png" id="4_1nqtw"]
+[ext_resource type="Script" path="res://Scripts/Exit.cs" id="5_m3shd"]
+[ext_resource type="Texture2D" uid="uid://dsoiibwva1kp8" path="res://PNGs/visibility-setting-0.png" id="7_dwlpj"]
+[ext_resource type="Script" path="res://Scripts/InteractableSetting.cs" id="8_8rswt"]
+[ext_resource type="Script" path="res://Scripts/VolumeSlider.cs" id="8_ipnes"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_54c0a")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_ytqeo")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="ReturnToMainMenuClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 899.0
+offset_top = 374.0
+offset_right = 1148.0
+offset_bottom = 463.0
+texture_normal = ExtResource("2_5s7n3")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_3ll4m")
+NameOfSceneToLoad = "Main_Menu"
+
+[node name="Exit" type="TextureButton" parent="SceneTransitions"]
+offset_left = 902.0
+offset_top = 543.0
+offset_right = 1123.0
+offset_bottom = 627.0
+texture_normal = ExtResource("4_1nqtw")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_m3shd")
+
+[node name="InteractableSetting" type="TextureButton" parent="."]
+offset_left = 434.0
+offset_top = 94.0
+offset_right = 709.0
+offset_bottom = 172.0
+texture_normal = ExtResource("7_dwlpj")
+script = ExtResource("8_8rswt")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InteractableSetting"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -41.0
+offset_right = 307.0
+offset_bottom = -9.0
+bbcode_enabled = true
+text = "[center]Visibility Of Interaction Points[/center]"
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+offset_left = 414.0
+offset_top = 264.0
+offset_right = 739.0
+offset_bottom = 299.0
+min_value = -20.0
+max_value = 20.0
+tick_count = 5
+script = ExtResource("8_ipnes")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VolumeSlider"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -26.0
+offset_right = 331.0
+bbcode_enabled = true
+text = "[center]Volume[/center]
+"
+
+[connection signal="pressed" from="SceneTransitions/ReturnToMainMenuClickable" to="SceneTransitions/ReturnToMainMenuClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/Exit" to="SceneTransitions/Exit" method="ExitGame"]
+[connection signal="pressed" from="InteractableSetting" to="InteractableSetting" method="ChangeVisibility"]
+[connection signal="value_changed" from="VolumeSlider" to="VolumeSlider" method="SliderChanged"]

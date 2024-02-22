@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdnkw65qb8ea3"]
+
+[ext_resource type="Script" path="res://Scripts/S4.cs" id="1_7k0km"]
+[ext_resource type="Texture2D" uid="uid://bd0xaeyxr5jtv" path="res://PNGs/S4.png" id="1_cqfns"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_7k0km")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_cqfns")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -42.0
+offset_top = 91.0
+offset_right = 103.0
+offset_bottom = 555.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S3"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1069.0
+offset_top = 99.0
+offset_right = 1214.0
+offset_bottom = 563.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S1"
+
+[node name="ShelfClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 643.0
+offset_top = 55.0
+offset_right = 946.0
+offset_bottom = 586.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S6"
+
+[node name="LivingRoomDoorClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 209.0
+offset_top = 103.0
+offset_right = 427.0
+offset_bottom = 572.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/ShelfClickable" to="SceneTransitions/ShelfClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/LivingRoomDoorClickable" to="SceneTransitions/LivingRoomDoorClickable" method="SignalSceneChange"]

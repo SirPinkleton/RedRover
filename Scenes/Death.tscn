@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://djiwn7gddr18n"]
+
+[ext_resource type="Script" path="res://Scripts/Death.cs" id="1_42vvj"]
+[ext_resource type="Texture2D" uid="uid://dj6rx8tgo7h3v" path="res://PNGs/death-1.png" id="1_gjygd"]
+[ext_resource type="AudioStream" uid="uid://bhp7cx8beuf6l" path="res://Audio/death-roar.mp3" id="2_4onvs"]
+[ext_resource type="Texture2D" uid="uid://dn2b47w6nvuan" path="res://PNGs/Static-1-1.png" id="3_yfhgu"]
+[ext_resource type="Texture2D" uid="uid://dwqogddqyr8bd" path="res://PNGs/Static-1-2.png" id="4_sh1b7"]
+[ext_resource type="Texture2D" uid="uid://cpbacpbm8lfsf" path="res://PNGs/Static-1-3.png" id="5_qe0u7"]
+
+[sub_resource type="Animation" id="Animation_38vv2"]
+resource_name = "staticdeath"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_yfhgu"), ExtResource("4_sh1b7"), ExtResource("5_qe0u7")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqbl8"]
+_data = {
+"staticdeath": SubResource("Animation_38vv2")
+}
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_42vvj")
+deathScreech = ExtResource("2_4onvs")
+
+[node name="StaticImage" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_sh1b7")
+
+[node name="StaticAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hqbl8")
+}
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("1_gjygd")

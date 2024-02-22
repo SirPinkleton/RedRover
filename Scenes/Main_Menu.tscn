@@ -1,6 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://bylvew8fq03d2"]
+[gd_scene load_steps=10 format=3 uid="uid://bylvew8fq03d2"]
 
-[ext_resource type="Script" path="res://Scripts/Main_Menu.cs" id="1_d2h3s"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_psepv"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="2_7tea6"]
+[ext_resource type="AudioStream" uid="uid://djre8npy5mgf4" path="res://Audio/PatriciaTaxxon-FoleyArtist-SpringtimeisHere.mp3" id="2_afiy7"]
+[ext_resource type="Texture2D" uid="uid://d3ng7l28dd0ga" path="res://PNGs/RedRoverTitle.png" id="2_u3cmn"]
+[ext_resource type="Texture2D" uid="uid://c3ucilrp27avk" path="res://PNGs/StartGame.png" id="3_sx22w"]
+[ext_resource type="Texture2D" uid="uid://bq4sj8wwi16v3" path="res://PNGs/Settings.png" id="5_jyxb2"]
+[ext_resource type="Texture2D" uid="uid://bgtuhb0bj1gvk" path="res://PNGs/Credits.png" id="6_bd06l"]
+[ext_resource type="Texture2D" uid="uid://k85rusfdvsk2" path="res://PNGs/Exit.png" id="7_233ow"]
+[ext_resource type="Script" path="res://Scripts/Exit.cs" id="7_kseo0"]
 
-[node name="MainMenu" type="Node2D"]
-script = ExtResource("1_d2h3s")
+[node name="Main_Menu" type="Node2D"]
+script = ExtResource("1_psepv")
+MainMenuMusic = ExtResource("2_afiy7")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_u3cmn")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="ClickableStartGameButton" type="TextureButton" parent="SceneTransitions"]
+offset_left = 425.0
+offset_top = 262.0
+offset_right = 723.0
+offset_bottom = 357.0
+texture_normal = ExtResource("3_sx22w")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_7tea6")
+NameOfSceneToLoad = "S1"
+
+[node name="SettingsClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 464.0
+offset_top = 356.0
+offset_right = 688.0
+offset_bottom = 449.0
+texture_normal = ExtResource("5_jyxb2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_7tea6")
+NameOfSceneToLoad = "Settings"
+
+[node name="CreditsClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 457.0
+offset_top = 455.0
+offset_right = 678.0
+offset_bottom = 539.0
+texture_normal = ExtResource("6_bd06l")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_7tea6")
+NameOfSceneToLoad = "Credits"
+
+[node name="Exit" type="TextureButton" parent="SceneTransitions"]
+offset_left = 461.0
+offset_top = 543.0
+offset_right = 682.0
+offset_bottom = 627.0
+texture_normal = ExtResource("7_233ow")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_kseo0")
+
+[connection signal="pressed" from="SceneTransitions/ClickableStartGameButton" to="SceneTransitions/ClickableStartGameButton" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/SettingsClickable" to="SceneTransitions/SettingsClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/CreditsClickable" to="SceneTransitions/CreditsClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/Exit" to="SceneTransitions/Exit" method="ExitGame"]

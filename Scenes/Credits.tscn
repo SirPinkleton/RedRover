@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvnfa76xahqvn"]
+
+[ext_resource type="Texture2D" uid="uid://c6j1u103fr46f" path="res://PNGs/blankBackground.png" id="1_sa7ii"]
+[ext_resource type="Texture2D" uid="uid://sswxdi20th8f" path="res://PNGs/prev.png" id="2_kl7d6"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="3_au30e"]
+
+[node name="Credits" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_sa7ii")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="ReturnToMainMenuClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 62.0
+offset_top = 121.0
+offset_right = 360.0
+offset_bottom = 216.0
+texture_normal = ExtResource("2_kl7d6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_au30e")
+NameOfSceneToLoad = "Main_Menu"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 39.0
+offset_top = 262.0
+offset_right = 1016.0
+offset_bottom = 637.0
+text = "Made by Robin! Made for 2024 Scream TV game jam
+
+Patricia Taxxon:
+'Springtime is Here' from the album Foley Artist ; 'Failing' from the album Doraemon
+Pixabay:
+'demonic-monster-scream' from alex_jauk
+'old-wood-creaking-building' from Moniker_Subriquet
+'wood-smash-5', 'Gross-slimy-goo-foley-2' from floraphonic
+'a-short-horror-with-a-build-up' by UNIVERSFIELD
+'box-crash', 'Stompwave', 'demonic-woman-scream', 'so-slimey', 'slime-2', 'high-quality-monster-screech', 'scream_aaa-1', 'knife-slice', 'knife-stab-pull', 'knife-slice', 'computer-whine', ''hardstyle-screech', 'angry-dinosaur', 'monster-roar' from Pixabay
+
+Tech used: Krita for image creation, Godot for game making, Audacity for audio splicing and effects"
+
+[connection signal="pressed" from="SceneTransitions/ReturnToMainMenuClickable" to="SceneTransitions/ReturnToMainMenuClickable" method="SignalSceneChange"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3xkyxvc0moil"]
+
+[ext_resource type="Texture2D" uid="uid://dfgvtkeclcauw" path="res://PNGs/comment.png" id="1_g8s0i"]
+
+[node name="CommentWindow" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 647.0
+texture = ExtResource("1_g8s0i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 68.0
+offset_top = 499.0
+offset_right = 1084.0
+offset_bottom = 624.0
+bbcode_enabled = true
+text = "[center]Test.[/center]"

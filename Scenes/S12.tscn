@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqow58oebackf"]
+
+[ext_resource type="Texture2D" uid="uid://dkjasncu7lhsw" path="res://PNGs/S12-untouched.png" id="1_6esx8"]
+[ext_resource type="Script" path="res://Scripts/S12.cs" id="1_d05yn"]
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_d05yn")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_6esx8")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="PantryClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 174.0
+offset_top = 67.0
+offset_right = 443.0
+offset_bottom = 558.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S14"
+
+[node name="CabinetsClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 681.0
+offset_top = -8.0
+offset_right = 1197.0
+offset_bottom = 445.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S15"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 105.0
+offset_top = 600.0
+offset_right = 788.0
+offset_bottom = 674.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[node name="RoomClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 4.0
+offset_top = 141.0
+offset_right = 133.0
+offset_bottom = 629.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S4"
+
+[node name="FridgeClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 448.0
+offset_top = 48.0
+offset_right = 662.0
+offset_bottom = 554.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S13"
+
+[connection signal="pressed" from="SceneTransitions/PantryClickable" to="SceneTransitions/PantryClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/CabinetsClickable" to="SceneTransitions/CabinetsClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RoomClickable" to="SceneTransitions/RoomClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/FridgeClickable" to="SceneTransitions/FridgeClickable" method="SignalSceneChange"]

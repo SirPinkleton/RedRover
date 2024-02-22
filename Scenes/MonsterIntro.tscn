@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=3 uid="uid://blfau8lo71hdy"]
+
+[ext_resource type="Script" path="res://Scripts/MonsterIntro.cs" id="1_a7qu3"]
+[ext_resource type="Texture2D" uid="uid://15ufldf1ydtf" path="res://PNGs/S8.png" id="2_0jh65"]
+[ext_resource type="AudioStream" uid="uid://c0spe1fd3ofnq" path="res://Audio/box-crash-106687.mp3" id="2_qtjlk"]
+[ext_resource type="AudioStream" uid="uid://3dps2ymmmqqy" path="res://Audio/wood-smash-5-170421.mp3" id="3_w0exc"]
+[ext_resource type="AudioStream" uid="uid://e30y6dwt5kgc" path="res://Audio/stomp.mp3" id="4_66srb"]
+[ext_resource type="AudioStream" uid="uid://pnrndhy5mmrt" path="res://Audio/grunt.mp3" id="5_iy8ya"]
+[ext_resource type="AudioStream" uid="uid://dfhlg7elujpgj" path="res://Audio/short-scream.mp3" id="6_avd6d"]
+
+[node name="MonsterIntro" type="Node2D"]
+script = ExtResource("1_a7qu3")
+Bump = ExtResource("2_qtjlk")
+Crash = ExtResource("3_w0exc")
+Stomp = ExtResource("4_66srb")
+Grunt = ExtResource("5_iy8ya")
+Roar = ExtResource("6_avd6d")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("2_0jh65")

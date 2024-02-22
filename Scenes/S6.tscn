@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx4n2rcqd8yy6"]
+
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Texture2D" uid="uid://snnyk2d6vwln" path="res://PNGs/S6.png" id="1_fh1gq"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Script" path="res://Scripts/InteractableButton.cs" id="4_1htc7"]
+
+[node name="Scene_Of_House" type="Node2D"]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_fh1gq")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -37.0
+offset_top = 97.0
+offset_right = 108.0
+offset_bottom = 561.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S4"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1055.0
+offset_top = 88.0
+offset_right = 1200.0
+offset_bottom = 552.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S4"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="BookCommentable1" type="TextureButton" parent="Interactions"]
+offset_left = 423.0
+offset_top = 1.0
+offset_right = 681.0
+offset_bottom = 102.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "Just come cooking books."
+
+[node name="BookCommentable2" type="TextureButton" parent="Interactions"]
+offset_left = 434.0
+offset_top = 153.0
+offset_right = 684.0
+offset_bottom = 248.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "Full of half-started journals"
+
+[node name="BookCommentable3" type="TextureButton" parent="Interactions"]
+offset_left = 427.0
+offset_top = 260.0
+offset_right = 685.0
+offset_bottom = 357.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "Fantasy novels, nothing too interesting."
+
+[node name="BookCommentable4" type="TextureButton" parent="Interactions"]
+offset_left = 420.0
+offset_top = 362.0
+offset_right = 683.0
+offset_bottom = 462.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "Dictionaries of various languages."
+
+[node name="BookCommentable5" type="TextureButton" parent="Interactions"]
+offset_left = 427.0
+offset_top = 462.0
+offset_right = 690.0
+offset_bottom = 562.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "I was in a cult once, these are some old paraphenalia. "
+
+[node name="BookCommentable6" type="TextureButton" parent="Interactions"]
+offset_left = 420.0
+offset_top = 553.0
+offset_right = 683.0
+offset_bottom = 653.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_1htc7")
+CommentWhenClicked = "\"A monster of excess will eat _anything_, use this to your advantage.\""
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/BookCommentable1" to="Interactions/BookCommentable1" method="SendCommentMessage"]
+[connection signal="pressed" from="Interactions/BookCommentable2" to="Interactions/BookCommentable2" method="SendCommentMessage"]
+[connection signal="pressed" from="Interactions/BookCommentable3" to="Interactions/BookCommentable3" method="SendCommentMessage"]
+[connection signal="pressed" from="Interactions/BookCommentable4" to="Interactions/BookCommentable4" method="SendCommentMessage"]
+[connection signal="pressed" from="Interactions/BookCommentable5" to="Interactions/BookCommentable5" method="SendCommentMessage"]
+[connection signal="pressed" from="Interactions/BookCommentable6" to="Interactions/BookCommentable6" method="SendCommentMessage"]

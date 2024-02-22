@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://b68jqptc571mp"]
+
+[ext_resource type="Texture2D" uid="uid://15ufldf1ydtf" path="res://PNGs/S8.png" id="1_88s3y"]
+[ext_resource type="Script" path="res://Scripts/S8.cs" id="1_gdmax"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="AudioStream" uid="uid://dfhlg7elujpgj" path="res://Audio/short-scream.mp3" id="2_cv443"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_gdmax")
+Roar = ExtResource("2_cv443")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_88s3y")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -40.0
+offset_top = 107.0
+offset_right = 105.0
+offset_bottom = 571.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1041.0
+offset_top = 115.0
+offset_right = 1186.0
+offset_bottom = 579.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S11"
+
+[node name="CouchClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 366.0
+offset_top = 92.0
+offset_right = 993.0
+offset_bottom = 308.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S9"
+
+[node name="TVClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 651.0
+offset_top = 371.0
+offset_right = 954.0
+offset_bottom = 619.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S10"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 120.0
+offset_top = 568.0
+offset_right = 648.0
+offset_bottom = 648.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S4"
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/CouchClickable" to="SceneTransitions/CouchClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/TVClickable" to="SceneTransitions/TVClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]

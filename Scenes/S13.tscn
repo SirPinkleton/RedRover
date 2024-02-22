@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://wgo0dx3dyud5"]
+
+[ext_resource type="Script" path="res://Scripts/S13.cs" id="1_7mvt1"]
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Texture2D" uid="uid://c7nchrmv50thi" path="res://PNGs/S13-withfood.png" id="1_j2q3o"]
+[ext_resource type="Script" path="res://Scripts/AcquiringButton.cs" id="4_0c64s"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_7mvt1")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_j2q3o")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -47.0
+offset_top = 86.0
+offset_right = 98.0
+offset_bottom = 550.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1055.0
+offset_top = 90.0
+offset_right = 1200.0
+offset_bottom = 554.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 98.0
+offset_top = 599.0
+offset_right = 1043.0
+offset_bottom = 683.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="FoodAcquirable" type="TextureButton" parent="Interactions"]
+offset_left = 268.0
+offset_top = 113.0
+offset_right = 584.0
+offset_bottom = 330.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_0c64s")
+CommentWhenClicked = "Guh, when did this get here?"
+whatToCollect = "food"
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/FoodAcquirable" to="Interactions/FoodAcquirable" method="AcquireItem"]

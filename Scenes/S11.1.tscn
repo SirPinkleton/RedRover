@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmj3gj7l8wasm"]
+
+[ext_resource type="Script" path="res://Scripts/S11Escape.cs" id="1_atd0j"]
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Texture2D" uid="uid://bjuaiis4qg1o8" path="res://PNGs/S11.1.png" id="1_owlhg"]
+[ext_resource type="AudioStream" uid="uid://cruuiaqbsjqpb" path="res://Audio/monster-chase.mp3" id="2_0kr8i"]
+[ext_resource type="AudioStream" uid="uid://bbrmki5hjbphk" path="res://Audio/running-away.mp3" id="3_tf0j5"]
+[ext_resource type="AudioStream" uid="uid://dhv6xx814nwfc" path="res://Audio/running-away-transforming2.mp3" id="4_wpbfw"]
+[ext_resource type="AudioStream" uid="uid://g2qttr7vr7y6" path="res://Audio/transformingmusic.mp3" id="5_8fxxa"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_atd0j")
+chasedown = ExtResource("2_0kr8i")
+runningAway = ExtResource("3_tf0j5")
+aaarunningAwayTransforming = ExtResource("4_wpbfw")
+transformingTension = ExtResource("5_8fxxa")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_owlhg")
+
+[node name="ForegroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("1_owlhg")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1.0
+offset_top = 82.0
+offset_right = 146.0
+offset_bottom = 546.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "Main_Menu"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1008.0
+offset_top = 91.0
+offset_right = 1153.0
+offset_bottom = 555.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "Main_Menu"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 98.0
+offset_top = 569.0
+offset_right = 1043.0
+offset_bottom = 653.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "Main_Menu"
+
+[node name="UpBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 114.0
+offset_top = -4.0
+offset_right = 1059.0
+offset_bottom = 80.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "Main_Menu"
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/UpBorderClickable" to="SceneTransitions/UpBorderClickable" method="SignalSceneChange"]

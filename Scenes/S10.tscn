@@ -1,0 +1,286 @@
+[gd_scene load_steps=40 format=3 uid="uid://b75u65hlpdywn"]
+
+[ext_resource type="Script" path="res://Scripts/TVLogic.cs" id="1_0ux5g"]
+[ext_resource type="Texture2D" uid="uid://b2ttbq8mlebw5" path="res://PNGs/S10.png" id="1_6wj27"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="AudioStream" uid="uid://cfjlpbdr4vkiy" path="res://Audio/happygrunt.mp3" id="2_6d55t"]
+[ext_resource type="Texture2D" uid="uid://bvndyvyku74et" path="res://PNGs/interference-1a.png" id="2_6q4th"]
+[ext_resource type="Texture2D" uid="uid://cohcv6m1r0yjp" path="res://PNGs/interference-2c.png" id="2_ccy30"]
+[ext_resource type="Texture2D" uid="uid://duwaaq0e4hmlo" path="res://PNGs/interference-1b.png" id="3_1bw6i"]
+[ext_resource type="Texture2D" uid="uid://c5nwwh4doi615" path="res://PNGs/interference-1c.png" id="4_xv0k1"]
+[ext_resource type="Texture2D" uid="uid://cgjuyewplpqmm" path="res://PNGs/interference-2a.png" id="6_ky1vx"]
+[ext_resource type="Texture2D" uid="uid://bjmjxf1afsrr3" path="res://PNGs/interference-2b.png" id="7_d11w4"]
+[ext_resource type="Texture2D" uid="uid://bwrfr7qxjdhxn" path="res://PNGs/interference-3a.png" id="8_n3lwc"]
+[ext_resource type="Texture2D" uid="uid://boood2keonj55" path="res://PNGs/interference-3b.png" id="9_uqy6h"]
+[ext_resource type="Texture2D" uid="uid://bwovyi5lorhgr" path="res://PNGs/interference-3c.png" id="10_hw4bd"]
+[ext_resource type="Texture2D" uid="uid://dmk44p2rxmot8" path="res://PNGs/violence-a.png" id="11_jdtri"]
+[ext_resource type="Texture2D" uid="uid://clbmxbundbfth" path="res://PNGs/violence-b.png" id="12_p55xa"]
+[ext_resource type="Texture2D" uid="uid://dxh0tbtvfnw81" path="res://PNGs/violence-c.png" id="13_5ppcx"]
+[ext_resource type="Texture2D" uid="uid://bfsiwvnvb7iv6" path="res://PNGs/gross-a.png" id="14_iotds"]
+[ext_resource type="Texture2D" uid="uid://j3nshu7oxur6" path="res://PNGs/gross-b.png" id="15_pwevm"]
+[ext_resource type="Texture2D" uid="uid://cnxshjuydjo5j" path="res://PNGs/gross-c.png" id="16_j3tdr"]
+[ext_resource type="Texture2D" uid="uid://chdaofnd3ff6a" path="res://PNGs/disquieting-a.png" id="17_86n1q"]
+[ext_resource type="Texture2D" uid="uid://cactv5l76ypwn" path="res://PNGs/disquieting-b.png" id="18_byhy0"]
+[ext_resource type="Texture2D" uid="uid://cvdgbvkx2mc80" path="res://PNGs/disquieting-c.png" id="19_wiq05"]
+[ext_resource type="Texture2D" uid="uid://d3w72ubixope4" path="res://PNGs/loud-a.png" id="20_6fdau"]
+[ext_resource type="Texture2D" uid="uid://dlr4fs4afcxi1" path="res://PNGs/loud-b.png" id="21_uxioi"]
+[ext_resource type="Texture2D" uid="uid://ceiocwhw4aqoe" path="res://PNGs/loud-c.png" id="22_mqg20"]
+
+[sub_resource type="Gradient" id="Gradient_k0bfa"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q5342"]
+gradient = SubResource("Gradient_k0bfa")
+
+[sub_resource type="Animation" id="Animation_0jbag"]
+resource_name = "Channel0"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChannelImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("GradientTexture1D_q5342")]
+}
+
+[sub_resource type="Animation" id="Animation_uv62t"]
+resource_name = "Channel1"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChannelImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_jdtri"), ExtResource("12_p55xa"), ExtResource("13_5ppcx")]
+}
+
+[sub_resource type="Animation" id="Animation_5f7yk"]
+resource_name = "Channel2"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChannelImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_iotds"), ExtResource("15_pwevm"), ExtResource("16_j3tdr")]
+}
+
+[sub_resource type="Animation" id="Animation_tnb0i"]
+resource_name = "Channel3"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChannelImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_86n1q"), ExtResource("18_byhy0"), ExtResource("19_wiq05")]
+}
+
+[sub_resource type="Animation" id="Animation_hbnis"]
+resource_name = "Channel4"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChannelImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_6fdau"), ExtResource("21_uxioi"), ExtResource("22_mqg20")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqm7y"]
+_data = {
+"Channel0": SubResource("Animation_0jbag"),
+"Channel1": SubResource("Animation_uv62t"),
+"Channel2": SubResource("Animation_5f7yk"),
+"Channel3": SubResource("Animation_tnb0i"),
+"Channel4": SubResource("Animation_hbnis")
+}
+
+[sub_resource type="Animation" id="Animation_1csey"]
+resource_name = "Static0"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_6q4th"), ExtResource("3_1bw6i"), ExtResource("4_xv0k1")]
+}
+
+[sub_resource type="Animation" id="Animation_fmpm4"]
+resource_name = "Static1"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_ky1vx"), ExtResource("7_d11w4"), ExtResource("2_ccy30")]
+}
+
+[sub_resource type="Animation" id="Animation_wp5ty"]
+resource_name = "Static2"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_n3lwc"), ExtResource("9_uqy6h"), ExtResource("10_hw4bd")]
+}
+
+[sub_resource type="Animation" id="Animation_h3cgc"]
+resource_name = "Static3"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticImage:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_n3lwc"), ExtResource("9_uqy6h"), ExtResource("10_hw4bd")]
+}
+
+[sub_resource type="Animation" id="Animation_lpqo5"]
+resource_name = "asd"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_scrdy"]
+_data = {
+"Static0": SubResource("Animation_1csey"),
+"Static1": SubResource("Animation_fmpm4"),
+"Static2": SubResource("Animation_wp5ty"),
+"Static3": SubResource("Animation_h3cgc"),
+"asd": SubResource("Animation_lpqo5")
+}
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_0ux5g")
+happyGrunt = ExtResource("2_6d55t")
+
+[node name="ChannelImage" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("22_mqg20")
+
+[node name="ChannelAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aqm7y")
+}
+
+[node name="StaticImage" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_6q4th")
+
+[node name="StaticAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_scrdy")
+}
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 648.0
+texture = ExtResource("1_6wj27")
+
+[node name="KnobImage" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AntennaeImage" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1052.0
+offset_top = 97.0
+offset_right = 1197.0
+offset_bottom = 561.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 102.0
+offset_top = 581.0
+offset_right = 1047.0
+offset_bottom = 665.0
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S8"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="ChangeChannelInteractable" type="TextureButton" parent="Interactions"]
+offset_left = 768.0
+offset_top = 204.0
+offset_right = 889.0
+offset_bottom = 291.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ChangeAntennaeOrientationInteractable" type="TextureButton" parent="Interactions"]
+offset_left = 350.0
+offset_top = -25.0
+offset_right = 786.0
+offset_bottom = 159.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/ChangeChannelInteractable" to="." method="UpdateKnob"]
+[connection signal="pressed" from="Interactions/ChangeAntennaeOrientationInteractable" to="." method="UpdateAntennae"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=3 uid="uid://47dat070wlvh"]
+
+[ext_resource type="Script" path="res://Scripts/global_handler.cs" id="1_us3hm"]
+[ext_resource type="AudioStream" uid="uid://cbt3mf36gd50g" path="res://Audio/WhiteNoise_64kb.mp3" id="2_k0gx4"]
+[ext_resource type="AudioStream" uid="uid://br8wyqjgmkiie" path="res://Audio/screaming-man.mp3" id="3_6d64s"]
+[ext_resource type="AudioStream" uid="uid://byuplknftbp5v" path="res://Audio/old-wood-creaking-building-171122.mp3" id="3_tpkbf"]
+[ext_resource type="AudioStream" uid="uid://bry4usq5io0f1" path="res://Audio/gross.mp3" id="3_wi2ob"]
+[ext_resource type="AudioStream" uid="uid://bynyu5lxf3wju" path="res://Audio/computer-whine-48039.mp3" id="5_x8kcf"]
+[ext_resource type="AudioStream" uid="uid://bnj8r61xqi3ut" path="res://Audio/BrownianNoise_64kb.mp3" id="6_y15gw"]
+[ext_resource type="AudioStream" uid="uid://dvtrdwca8h8bb" path="res://Audio/a-short-horror-with-a-build-up-153269.mp3" id="8_mqcbc"]
+[ext_resource type="AudioStream" uid="uid://wb4n7v4376qe" path="res://Audio/tv-bad-roar.mp3" id="8_rky14"]
+[ext_resource type="Texture2D" uid="uid://bnp2oajhtulrm" path="res://PNGs/bowl.png" id="9_fhe6f"]
+[ext_resource type="Texture2D" uid="uid://bawej5fkq8yqp" path="res://PNGs/gross-foodby-itself.png" id="10_7tacq"]
+[ext_resource type="Texture2D" uid="uid://6qwud60hlgpm" path="res://PNGs/toxic-goop.png" id="11_ysmen"]
+
+[node name="Global_Handler" type="Node2D"]
+script = ExtResource("1_us3hm")
+whitenoise = ExtResource("2_k0gx4")
+violence = ExtResource("3_6d64s")
+gross = ExtResource("3_wi2ob")
+disquieting = ExtResource("5_x8kcf")
+loud = ExtResource("6_y15gw")
+creaking = ExtResource("3_tpkbf")
+risingTensionMusic = ExtResource("8_mqcbc")
+angered = ExtResource("8_rky14")
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="PickUpAbles" type="CanvasLayer" parent="Canvas"]
+
+[node name="Bowl" type="TextureRect" parent="Canvas/PickUpAbles"]
+offset_left = -38.0
+offset_top = 495.0
+offset_right = 431.0
+offset_bottom = 660.0
+texture = ExtResource("9_fhe6f")
+
+[node name="gross-food" type="TextureRect" parent="Canvas/PickUpAbles"]
+offset_left = 38.0
+offset_top = 472.0
+offset_right = 365.0
+offset_bottom = 637.0
+texture = ExtResource("10_7tacq")
+
+[node name="toxic-goo" type="TextureRect" parent="Canvas/PickUpAbles"]
+offset_left = 35.0
+offset_top = 469.0
+offset_right = 362.0
+offset_bottom = 634.0
+texture = ExtResource("11_ysmen")
+
+[node name="SettingsButton" type="CanvasLayer" parent="Canvas"]

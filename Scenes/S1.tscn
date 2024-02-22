@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5uonyht0i1ih"]
+
+[ext_resource type="Script" path="res://Scripts/S1.cs" id="1_6ix32"]
+[ext_resource type="Texture2D" uid="uid://cj1ka710ft716" path="res://PNGs/S1.png" id="1_gwsl8"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Texture2D" uid="uid://crv7dwre6xvxx" path="res://PNGs/highVisButton.png" id="2_8by2m"]
+[ext_resource type="Script" path="res://Scripts/InteractableButton.cs" id="4_viu6w"]
+
+[node name="Scene_Of_House" type="Node2D"]
+script = ExtResource("1_6ix32")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_gwsl8")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -37.0
+offset_top = 91.0
+offset_right = 108.0
+offset_bottom = 555.0
+texture_normal = ExtResource("2_8by2m")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S4"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1054.0
+offset_top = 92.0
+offset_right = 1199.0
+offset_bottom = 556.0
+texture_normal = ExtResource("2_8by2m")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S2"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="LookOutsideCommentable" type="TextureButton" parent="Interactions"]
+offset_left = 300.0
+offset_top = 54.0
+offset_right = 847.0
+offset_bottom = 398.0
+texture_normal = ExtResource("2_8by2m")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_viu6w")
+CommentWhenClicked = "Is there something moving out there?"
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/LookOutsideCommentable" to="Interactions/LookOutsideCommentable" method="SendCommentMessage"]

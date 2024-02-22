@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://buaxwd8lk43c6"]
+
+[ext_resource type="Texture2D" uid="uid://bgn4b30yngw0j" path="res://PNGs/1.png" id="1_dxpnf"]
+[ext_resource type="Texture2D" uid="uid://clte8g7oibvnj" path="res://PNGs/S15.png" id="1_gi4n1"]
+[ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
+[ext_resource type="Script" path="res://Scripts/AcquiringButton.cs" id="4_5evxe"]
+[ext_resource type="Script" path="res://Scripts/InteractableButton.cs" id="4_h83wb"]
+
+[node name="Scene_Of_House" type="Node2D"]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 646.0
+texture = ExtResource("1_gi4n1")
+
+[node name="SceneTransitions" type="Node" parent="."]
+
+[node name="LeftBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = -55.0
+offset_top = 82.0
+offset_right = 90.0
+offset_bottom = 546.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="RightBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 1060.0
+offset_top = 102.0
+offset_right = 1205.0
+offset_bottom = 566.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
+offset_left = 102.0
+offset_top = 594.0
+offset_right = 1047.0
+offset_bottom = 678.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_icjjn")
+NameOfSceneToLoad = "S12"
+
+[node name="Interactions" type="Node" parent="."]
+
+[node name="LeftCabinetAcquirable" type="TextureButton" parent="Interactions"]
+offset_left = 145.0
+offset_top = 15.0
+offset_right = 626.0
+offset_bottom = 263.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_5evxe")
+whatToCollect = "bowl"
+
+[node name="RightCabinetCommentable" type="TextureButton" parent="Interactions"]
+offset_left = 689.0
+offset_top = 7.0
+offset_right = 1027.0
+offset_bottom = 247.0
+texture_normal = ExtResource("1_dxpnf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_h83wb")
+CommentWhenClicked = "Nothing useful..."
+
+[connection signal="pressed" from="SceneTransitions/LeftBorderClickable" to="SceneTransitions/LeftBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/RightBorderClickable" to="SceneTransitions/RightBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="SceneTransitions/BottomBorderClickable" to="SceneTransitions/BottomBorderClickable" method="SignalSceneChange"]
+[connection signal="pressed" from="Interactions/LeftCabinetAcquirable" to="Interactions/LeftCabinetAcquirable" method="AcquireItem"]
+[connection signal="pressed" from="Interactions/RightCabinetCommentable" to="Interactions/RightCabinetCommentable" method="SendCommentMessage"]
