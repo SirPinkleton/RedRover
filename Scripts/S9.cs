@@ -5,6 +5,10 @@ public partial class S9 : Node2D
 {
 	[Export]
 	AudioStream screech;
+	[Export]
+	AudioStream chew;
+	[Export]
+	AudioStream thud;
 	public override async void _Ready()
 	{
 		var handlerNode = GetTree().CurrentScene as global_handler;
@@ -18,6 +22,12 @@ public partial class S9 : Node2D
 			//first, stop timers
 			handlerNode.timeSinceMonsterWasAngered.Stop();
 			handlerNode.timeSinceMonsterWasAppeased.Stop();
+
+			//stop music
+			handlerNode.currentTenseMusic.Stop();
+
+			//disable buttons
+			handlerNode.DisableAllButtons();
 
 			//if player is holding something, then play the killing cutscene
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-looking-at-player.png");
@@ -34,35 +44,51 @@ public partial class S9 : Node2D
 			handlerNode.HideAcquirables();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-looking-at-bowl.png");
 			await ToSignal(GetTree().CreateTimer(3f), SceneTreeTimer.SignalName.Timeout);
+			
+			handlerNode.currentAmbientNoises.Stream = screech;
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-1.png");
 			await ToSignal(GetTree().CreateTimer(.3f), SceneTreeTimer.SignalName.Timeout);
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-2.png");
 			await ToSignal(GetTree().CreateTimer(.3f), SceneTreeTimer.SignalName.Timeout);
-
+			handlerNode.currentAmbientNoises.Stop();
+			handlerNode.currentAmbientNoises.Stream = chew;
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-3.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-4.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-3.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-4.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-3.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-4.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-3.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Play();
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-eatingbowl-4.png");
 			await ToSignal(GetTree().CreateTimer(.2f), SceneTreeTimer.SignalName.Timeout);
 
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-finished-eating.png");
 			await ToSignal(GetTree().CreateTimer(5f), SceneTreeTimer.SignalName.Timeout);
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S9-dead.png");
-			await ToSignal(GetTree().CreateTimer(1f), SceneTreeTimer.SignalName.Timeout);
+			handlerNode.currentAmbientNoises.Stream = thud;
+			handlerNode.currentAmbientNoises.Play();
+			handlerNode.DisplayComment("IT WORKED!!!! I'M SAFE!!! Now, to get out of here.");
+			await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
 			handlerNode.currentMonsterState = global_handler.MonsterStates.Dead;
-			//play dying sound
-			//add happy exclamation
+
+			handlerNode.ProcessChangeScene("S9");
+			QueueFree();
 		}
 		else
 		{

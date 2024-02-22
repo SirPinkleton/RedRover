@@ -47,6 +47,7 @@ public partial class S11Escape : Node2D
 			handlerNode.currentMonsterNoises.Play();
 
 			//show running away images
+			GetNode<TextureRect>("ForegroundImage").Texture = null;
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/escape-1.png");
 			await ToSignal(GetTree().CreateTimer(.4f), SceneTreeTimer.SignalName.Timeout);
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/escape-2.png");
@@ -85,6 +86,7 @@ public partial class S11Escape : Node2D
 			handlerNode.currentAmbientNoises.Play();
 
 			//show running away images
+			GetNode<TextureRect>("ForegroundImage").Texture = null;
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/escape-1.png");
 			await ToSignal(GetTree().CreateTimer(.4f), SceneTreeTimer.SignalName.Timeout);
 			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/escape-2.png");

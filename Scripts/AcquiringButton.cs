@@ -60,9 +60,15 @@ public partial class AcquiringButton : TextureButton
 		{
 			EmitSignal(SignalName.MakeComment, "Already got the bowl.");
 		}
-		else if (whatToCollect == "food" && handlerNode.isCarryingBowl && !handlerNode.isCarryingBadFood)
+		else if (whatToCollect == "food" && handlerNode.isCarryingBowl && !handlerNode.isCarryingBadFood && !handlerNode.isCarryingSludge)
 		{
 			EmitSignal(SignalName.MakeComment, "I think this is palatable to that... thing. But it needs to be deadly...");
+			handlerNode.ShowFood();
+			GetNode<TextureRect>("../../BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/S13-nofood.png");
+		}
+		else if (whatToCollect == "food" && handlerNode.isCarryingBowl && !handlerNode.isCarryingBadFood && handlerNode.isCarryingSludge)
+		{
+			EmitSignal(SignalName.MakeComment, "Ok, this should work.");
 			handlerNode.ShowFood();
 			GetNode<TextureRect>("../../BackgroundImage").Texture = (Texture2D)ResourceLoader.Load($"PNGs/S13-nofood.png");
 		}

@@ -27,6 +27,13 @@ public partial class S8 : Node2D
 			//unload this scene to allow intro to play
 			QueueFree();
 		}
+		else if (handlerNode.currentMonsterState == MonsterStates.Dead)
+		{
+				
+			//results in a slew of scenes being loaded. Should involve a final step loading S10 (or the tutorial?)
+			handlerNode.currentAmbientNoises.Stop();
+			GetNode<TextureRect>("BackgroundImage").Texture = (Texture2D)ResourceLoader.Load("PNGs/S8-monster-dead.png");
+		}
 		else
 		{
 			//if we're not loading for the first time, adjust audio to new values

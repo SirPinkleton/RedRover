@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxnh1hynwvg5a"]
+[gd_scene load_steps=7 format=3 uid="uid://cxnh1hynwvg5a"]
 
 [ext_resource type="Texture2D" uid="uid://c8vvwdnw4gctn" path="res://PNGs/S9.png" id="1_21oid"]
 [ext_resource type="Script" path="res://Scripts/S9.cs" id="1_etloj"]
 [ext_resource type="Script" path="res://Scripts/SceneTransitionButton.cs" id="1_icjjn"]
 [ext_resource type="AudioStream" uid="uid://c7fih3gnstqbo" path="res://Audio/screech.mp3" id="2_lryu0"]
+[ext_resource type="AudioStream" uid="uid://b5g0golmh01fq" path="res://Audio/chewing-noise.mp3" id="3_dwvxg"]
+[ext_resource type="AudioStream" uid="uid://da130uivhf2nt" path="res://Audio/crash-6711.mp3" id="4_nkwv1"]
 
 [node name="Scene_Of_House" type="Node2D"]
 script = ExtResource("1_etloj")
 screech = ExtResource("2_lryu0")
+chew = ExtResource("3_dwvxg")
+thud = ExtResource("4_nkwv1")
 
 [node name="BackgroundImage" type="TextureRect" parent="."]
 offset_right = 1153.0

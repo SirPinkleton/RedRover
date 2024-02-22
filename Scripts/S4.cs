@@ -14,6 +14,8 @@ public partial class S4 : Node2D
 			GD.Print($"Changing static to new volume: -30db");
 			handlerNode.currentTVStatic.VolumeDb = -30f;
 			handlerNode.currentTVStatic.Play();
+
+			handlerNode.DisplayComment("Is that static...?");
 		}
 		if (handlerNode.currentTVChannelNoises.VolumeDb == -10)
 		{

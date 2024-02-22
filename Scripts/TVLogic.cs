@@ -29,6 +29,9 @@ public partial class TVLogic : Node2D
 			handlerNode.currentTVChannelNoises.VolumeDb = channelDeets.channelVolume;
 			GD.Print($"1 static is playing?: {handlerNode.currentTVStatic.Playing}");
 			GD.Print($"1 tv is playing?: {handlerNode.currentTVChannelNoises.Playing}");
+
+			//disable buttons
+			handlerNode.DisableAllButtons();
 		
 			//set antennae image to something
 			UpdateAntennae();

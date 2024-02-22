@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
@@ -302,21 +303,31 @@ public partial class global_handler : Node2D
 		//GetTree().CurrentScene.AddChild(currentSceneInstance);
 	}
 
-	private void DisableAllButtons()
+	public void DisableAllButtons()
 	{
-		var clickableChildren = GetTree().CurrentScene.FindChildren("*Clickable*");
-		foreach (var child in clickableChildren)
+		var toplevelchildren = GetTree().CurrentScene.GetChildren();
+		foreach (var child in toplevelchildren)
 		{
-			var childScript = child as SceneTransitionButton;
-			//GD.Print($"Setting {child}'s ChangeScene button to this function");
-			childScript.ChangeScene -= (newSceneName) => ProcessChangeScene(newSceneName);
-		}
-		clickableChildren = GetTree().CurrentScene.FindChildren("*Commentable*");
-		foreach (var child in clickableChildren)
-		{
-			var childScript = child as InteractableButton;
-			//GD.Print($"Setting {child}'s ChangeScene button to this function");
-			childScript.MakeComment -= (newSceneName) => ProcessChangeScene(newSceneName);
+			var clickableChildren = child.FindChildren("*Clickable*");
+			GD.Print($"Found {clickableChildren.Count} clickables");
+			foreach (var cchild in clickableChildren)
+			{
+				
+				var button = cchild as TextureButton;
+				button.Disabled = true;
+				//var childScript = cchild as SceneTransitionButton;
+				//childScript.ChangeScene -= (newSceneName) => ProcessChangeScene(newSceneName);
+			}
+			clickableChildren = child.FindChildren("*Commentable*");
+			GD.Print($"Found {clickableChildren.Count} commentables");
+			foreach (var cchild in clickableChildren)
+			{
+				var button = cchild as TextureButton;
+				button.Disabled = true;
+				//var childScript = cchild as InteractableButton;
+				//GD.Print($"Setting {child}'s ChangeScene button to this function");
+				//childScript.MakeComment -= (newSceneName) => DisplayComment(newSceneName);
+			}
 		}
 	}
 

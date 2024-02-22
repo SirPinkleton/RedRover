@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://47dat070wlvh"]
+[gd_scene load_steps=14 format=3 uid="uid://47dat070wlvh"]
 
 [ext_resource type="Script" path="res://Scripts/global_handler.cs" id="1_us3hm"]
 [ext_resource type="AudioStream" uid="uid://cbt3mf36gd50g" path="res://Audio/WhiteNoise_64kb.mp3" id="2_k0gx4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bnp2oajhtulrm" path="res://PNGs/bowl.png" id="9_fhe6f"]
 [ext_resource type="Texture2D" uid="uid://bawej5fkq8yqp" path="res://PNGs/gross-foodby-itself.png" id="10_7tacq"]
 [ext_resource type="Texture2D" uid="uid://6qwud60hlgpm" path="res://PNGs/toxic-goop.png" id="11_ysmen"]
+[ext_resource type="Texture2D" uid="uid://b5fxul3vjp7y7" path="res://PNGs/fog.png" id="13_kkwih"]
 
 [node name="Global_Handler" type="Node2D"]
 script = ExtResource("1_us3hm")
@@ -50,3 +51,11 @@ offset_bottom = 634.0
 texture = ExtResource("11_ysmen")
 
 [node name="SettingsButton" type="CanvasLayer" parent="Canvas"]
+
+[node name="fog" type="CanvasLayer" parent="Canvas"]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="Canvas/fog"]
+offset_right = 1151.0
+offset_bottom = 646.0
+texture = ExtResource("13_kkwih")

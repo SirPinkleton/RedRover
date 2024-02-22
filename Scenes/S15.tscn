@@ -38,10 +38,10 @@ script = ExtResource("1_icjjn")
 NameOfSceneToLoad = "S12"
 
 [node name="BottomBorderClickable" type="TextureButton" parent="SceneTransitions"]
-offset_left = 102.0
-offset_top = 594.0
-offset_right = 1047.0
-offset_bottom = 678.0
+offset_left = 107.0
+offset_top = 522.0
+offset_right = 1052.0
+offset_bottom = 647.0
 texture_normal = ExtResource("1_dxpnf")
 ignore_texture_size = true
 stretch_mode = 0
