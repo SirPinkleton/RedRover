@@ -1,2 +1,11 @@
 # Godot 4+ specific ignores
 .godot/
+
+#krita art files
+*.kra
+*.kra~
+*.png.import
+
+#misc audio files
+*.mp3.import
+*.aup3
